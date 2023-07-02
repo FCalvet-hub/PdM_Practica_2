@@ -31,7 +31,8 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdlib.h>
+#include <stdbool.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -77,6 +78,51 @@ void Error_Handler(void);
 #define SWO_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
+
+#define LED1_DURATION 100
+#define LED2_DURATION 500
+#define LED3_DURATION 1000
+
+typedef uint32_t tick_t; // stdint
+
+typedef bool bool_t;	  // stdbool
+
+typedef struct{
+   tick_t startTime;
+   tick_t duration;
+   bool_t running;
+} delay_t;
+
+typedef struct{
+  uint16_t pin;
+  GPIO_TypeDef *port;
+  delay_t *delay;
+} ledConf_t;
+
+/**
+ * @brief Delay struct inicialization
+ *        Note: call it allways before any other ralated delay function
+ * 
+ * @param delay pointer to delay_t struct
+ * @param duration delay duration in [ms]
+ */
+void delayInit( delay_t * delay, tick_t duration );
+
+/**
+ * @brief Read if configurated delay is completed
+ * 
+ * @param delay point to delay struct, 
+ * @return bool_t true if completed, false if not
+ */
+bool_t delayRead( delay_t * delay );
+
+/**
+ * @brief Change existing delay
+ * 
+ * @param delay points to delay_t struct
+ * @param duration delay duration in [ms]
+ */
+void delayWrite( delay_t * delay, tick_t duration );
 
 /* USER CODE END Private defines */
 
