@@ -14,7 +14,11 @@
 	- [Plataforma de desarrollo](#plataforma-de-desarrollo)
 	- [Autor](#autor)
 
-  
+## Plataforma de desarrollo
+Compilado y probado para la placa de desarrollo **NUCLEO-F401RE**
+
+*STM32F401RE Embedded Nucleo STM32F4 MCU 32-Bit ARM Cortex-M3 Evaluation Board*
+
 ## Objetivo
 Implementar un módulo de software para trabajar con retardos no bloqueantes. 
 
@@ -69,11 +73,6 @@ Contiene todos los datos necesarios para el manejo del delay
 	} ledConf_t;
 
 Concatena todas las variables necesarias para el manejo de los led con sus respectivos puertos y tiempos de delay. Util para implementar loops y modificar variables en un solo lugar en el codigo
-
-## Plataforma de desarrollo
-Compilado y probado para la placa de desarrollo **NUCLEO-F401RE**
-
-*STM32F401RE Embedded Nucleo STM32F4 MCU 32-Bit ARM Cortex-M3 Evaluation Board*
 
 ## Autor
 
